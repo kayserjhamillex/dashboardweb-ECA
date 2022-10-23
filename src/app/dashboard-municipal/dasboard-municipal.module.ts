@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardMunicipalRoutingModule } from './dasboard-municipal-routing.module';
 import { DashboardMunicipalComponent } from './dashboard-municipal.component';
@@ -39,7 +44,18 @@ import { MunicipalConfigComponent } from './municipal-config/municipal-config.co
   ],
   imports: [
     CommonModule,
-    DashboardMunicipalRoutingModule
+    DashboardMunicipalRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    DatePipe,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ]
 })
 export class DashboardMunicipalModule { }

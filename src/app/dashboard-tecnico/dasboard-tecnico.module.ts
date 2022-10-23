@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardTecnicoRoutingModule } from './dasboard-tecnico-routing.module';
 import { DashboardTecnicoComponent } from './dashboard-tecnico.component';
@@ -25,7 +30,18 @@ import { TecnicoConfigComponent } from './tecnico-config/tecnico-config.componen
   ],
   imports: [
     CommonModule,
-    DashboardTecnicoRoutingModule
+    DashboardTecnicoRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    DatePipe,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ]
 })
 export class DashboardTecnicoModule { }

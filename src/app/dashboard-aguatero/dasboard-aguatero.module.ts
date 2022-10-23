@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardAguateroRoutingModule } from './dasboard-aguatero-routing.module';
 import { DashboardAguateroComponent } from './dashboard-aguatero.component';
@@ -27,7 +32,18 @@ import { AguateroConfigComponent } from './aguatero-config/aguatero-config.compo
   ],
   imports: [
     CommonModule,
-    DashboardAguateroRoutingModule
+    DashboardAguateroRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    DatePipe,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ]
 })
 export class DashboardAguateroModule { }

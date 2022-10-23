@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardModeradorRoutingModule } from './dasboard-moderador-routing.module';
 import { DashboardModeradorComponent } from './dashboard-moderador.component';
@@ -27,7 +32,18 @@ import { ModeradorConfigComponent } from './moderador-config/moderador-config.co
   ],
   imports: [
     CommonModule,
-    DashboardModeradorRoutingModule
+    DashboardModeradorRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    DatePipe,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ]
 })
 export class DashboardModeradorModule { }

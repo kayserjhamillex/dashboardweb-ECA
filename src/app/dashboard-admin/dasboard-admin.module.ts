@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule, DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardAdminRoutingModule } from './dasboard-admin-routing.module';
 import { DashboardAdminComponent } from './dashboard-admin.component';
@@ -37,7 +42,18 @@ import { AdminConfigComponent } from './admin-config/admin-config.component';
   ],
   imports: [
     CommonModule,
-    DashboardAdminRoutingModule
+    DashboardAdminRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    DatePipe,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ]
 })
 export class DashboardAdminModule { }
