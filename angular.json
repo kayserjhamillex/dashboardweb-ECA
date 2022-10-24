@@ -23,9 +23,41 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/vendors/fontawesome/all.min.css",
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.css",
+              "src/assets/vendors/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/vendors/dripicons/webfont.css",
+              "src/assets/vendors/toastify/toastify.css",
+              "src/assets/vendors/simple-datatables/style.css",
+              "src/assets/vendors/iconly/bold.css",
+              "src/assets/vendors/rater-js/style.css",
+              "src/assets/vendors/dragula/dragula.min.css",
+              "src/assets/vendors/sweetalert2/sweetalert2.min.css",
+              "src/assets/css/app.css",
+              "src/assets/css/pages/email.css",
+              "src/assets/css/pages/error.css",
+              "src/assets/css/pages/dripicons.css",
+              "src/assets/css/widgets/chat.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendors/toastify/toastify.js",
+              "src/assets/vendors/fontawesome/all.min.js",
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/vendors/simple-datatables/simple-datatables.js",
+              "src/assets/vendors/dayjs/dayjs.min.js",
+              "src/assets/vendors/dragula/dragula.min.js",
+              "src/assets/vendors/ckeditor/ckeditor.js",
+              "src/assets/vendors/sweetalert2/sweetalert2.all.min.js",
+              "src/assets/vendors/rater-js/rater-js.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/pages/dashboard.js",
+              "src/assets/js/extensions/sweetalert2.js",
+              "src/assets/js/extensions/rater-js.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,9 +122,41 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/vendors/fontawesome/all.min.css",
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.css",
+              "src/assets/vendors/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/vendors/dripicons/webfont.css",
+              "src/assets/vendors/toastify/toastify.css",
+              "src/assets/vendors/simple-datatables/style.css",
+              "src/assets/vendors/iconly/bold.css",
+              "src/assets/vendors/rater-js/style.css",
+              "src/assets/vendors/dragula/dragula.min.css",
+              "src/assets/vendors/sweetalert2/sweetalert2.min.css",
+              "src/assets/css/app.css",
+              "src/assets/css/pages/email.css",
+              "src/assets/css/pages/error.css",
+              "src/assets/css/pages/dripicons.css",
+              "src/assets/css/widgets/chat.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendors/toastify/toastify.js",
+              "src/assets/vendors/fontawesome/all.min.js",
+              "src/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/vendors/simple-datatables/simple-datatables.js",
+              "src/assets/vendors/dayjs/dayjs.min.js",
+              "src/assets/vendors/dragula/dragula.min.js",
+              "src/assets/vendors/ckeditor/ckeditor.js",
+              "src/assets/vendors/sweetalert2/sweetalert2.all.min.js",
+              "src/assets/vendors/rater-js/rater-js.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/pages/dashboard.js",
+              "src/assets/js/extensions/sweetalert2.js",
+              "src/assets/js/extensions/rater-js.js",
+              "src/assets/js/main.js"
+            ]
           }
         }
       }
