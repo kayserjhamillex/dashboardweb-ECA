@@ -1,1 +1,154 @@
-<p>dashboard-tecnico works!</p>
+<div id="app">
+    <div id="sidebar" class="active">
+      <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+          <div class="d-flex justify-content-between">
+            <div class="logo">
+              <a [routerLink]="['/dashboard-admin/home']">
+                <img src="assets/images/logo/logo.png" alt="Logo" srcset="">
+              </a>
+            </div>
+            <div class="toggler">
+              <a href="#" class="sidebar-hide d-xl-none d-block">
+                <i class="bi bi-x bi-middle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul class="menu">
+            <li class="sidebar-title">
+              Panel Administrativo
+            </li>
+            <li class="sidebar-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink]="['/dashboard-admin/home']" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>
+                  Dashboard
+                </span>
+              </a>
+            </li>
+  
+            <li class="sidebar-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+              <a [routerLink]="['/dashboard-admin/usuario']" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>
+                  Usuario
+                </span>
+              </a>
+            </li>
+            <li class="sidebar-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink]="['/dashboard-admin/auditoria']" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>
+                  Actividades de Usuarios
+                </span>
+              </a>
+            </li>
+  
+            <!-- <li class="sidebar-item  has-sub " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink]="['/dashboard-admin/auditoria']" class='sidebar-link'>
+                <i class="bi bi-stack"></i>
+                <span>
+                  Usuario
+                </span>
+              </a>
+              <ul class="submenu ">
+                <li class="submenu-item ">
+                  <a [routerLink]="['/dashboard-admin/usuario/lista']">
+                    Listar Usuario
+                  </a>
+                </li>
+                <li class="submenu-item ">
+                  <a [routerLink]="['/dashboard-admin/usuario/create']">
+                    Crear Usuario
+                  </a>
+                </li>
+                <li class="submenu-item ">
+                  <a [routerLink]="['/dashboard-admin/auditoria']">
+                    Actividades Usuarios
+                  </a>
+                </li>
+              </ul>
+            </li> -->
+  
+            <li class="sidebar-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+              <a [routerLink]="['/dashboard-admin/punto-de-control']" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>
+                  Punto de Control
+                </span>
+              </a>
+            </li>
+  
+            <!-- <li class="sidebar-item  has-sub " routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+              <a [routerLink]="['/dashboard-admin/punto-de-control']" class='sidebar-link'>
+                <i class="bi bi-collection-fill"></i>
+                <span>
+                  Punto de Control
+                </span>
+              </a>
+              <ul class="submenu ">
+                <li class="submenu-item ">
+                  <a [routerLink]="['/dashboard-admin/punto-de-control/lista']">
+                    Listado
+                  </a>
+                </li>
+                <li class="submenu-item ">
+                  <a [routerLink]="['/dashboard-admin/punto-de-control/iniciar']">
+                    Inicializar
+                  </a>
+                </li>
+              </ul>
+            </li> -->
+  
+            <li class="sidebar-item  " routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+              <a [routerLink]="['/dashboard-admin/perfil']" class='sidebar-link'>
+                <i class="bi bi-file-earmark-medical-fill"></i>
+                <span>
+                  Pefil
+                </span>
+              </a>
+            </li>
+            <li class="sidebar-item  " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink]="['/dashboard-admin/configurar']" class='sidebar-link'>
+                <i class="bi bi-file-earmark-medical-fill"></i>
+                <span>
+                  Configurar
+                </span>
+              </a>
+            </li>
+            <li class="sidebar-item  " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a [routerLink]="['/dashboard-admin/ayuda']" class='sidebar-link'>
+                <i class="bi bi-file-earmark-medical-fill"></i>
+                <span>
+                  Ayuda
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <button class="sidebar-toggler btn x">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+    </div>
+    <div id="main">
+      <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+          <i class="bi bi-justify fs-3"></i>
+        </a>
+      </header>
+      <router-outlet></router-outlet>
+      <footer>
+        <div class="footer clearfix mb-0 text-danger">
+          <div class="float-center">
+            <p class="text-center">
+              2022 &copy; JxDesign
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
