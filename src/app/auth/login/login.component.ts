@@ -42,16 +42,18 @@ export class LoginComponent implements OnInit {
     const parametro2 = this.parametro.contra;
     console.log(parametro1);
     console.log(parametro2);
-    this.userService.getlogin(parametro1, parametro2).subscribe(res => {
-      if (res) {
-        this.userService.loggin(res);
-        this.toastr.success('Bienvenido Usuario');
-      } else {
-        this.toastr.error('Usuario y Contraseña incorrecto');
+    this.userService.getlogin(parametro1, parametro2).subscribe(
+      (res: any) => {
+        if (res) {
+          this.userService.loggin(res);
+          this.toastr.success('Bienvenido Usuario');
+        } else {
+          this.toastr.error('Usuario y Contraseña incorrecto');
+        }
+      }, (err: any) => {
+        console.log(err);
       }
-    }, err => {
-      console.log(err);
-    });
+    );
   }
   // tslint:disable-next-line: typedef
   recover() {

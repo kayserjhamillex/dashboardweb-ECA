@@ -55,8 +55,17 @@ export class UserService {
   updateUsuario(id: string|number, updateduser: User): Observable<User> {
     return this.http.put(`${this.apiUrl}/update/${id}`, updateduser);
   }
+  getFilterRol(rol: string | number) {
+    return this.http.get(`${this.apiUrl}/filter/${rol}`);
+  }
   getSearch(correo: string) {
     return this.http.get(`${this.apiUrl}/search/${correo}`);
+  }
+  getSearchDoc(documento: string) {
+    return this.http.get(`${this.apiUrl}/searchdoc/${documento}`);
+  }
+  getSearchCel(celular: string) {
+    return this.http.get(`${this.apiUrl}/searchcel/${celular}`);
   }
   getlogin(correo: string, contra: string) {
     return this.http.get(`${this.apiUrl}/login/${correo}/${contra}`);

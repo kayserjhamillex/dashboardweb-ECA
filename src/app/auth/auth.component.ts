@@ -40,7 +40,7 @@ export class AuthComponent implements OnInit {
       );
     }
     this.userService.client$.subscribe(
-      res => {
+      (res: any) => {
         if (res) {
           this.usuario = res;
           const parametro = this.usuario.RolId;

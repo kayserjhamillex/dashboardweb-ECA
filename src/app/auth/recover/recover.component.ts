@@ -55,12 +55,12 @@ export class RecoverComponent implements OnInit {
     this.usuario.Codigo = this.laclave;
     this.usuario.Estadito = 'activo';
     this.userService.updateUsuario(par, this.usuario).subscribe(
-      res => {
+      (res: any) => {
         if (res) {
           this.respuestita = res;
           this.toastr.info('se genero el codigo');
         }
-      }, err => {
+      }, (err: any) => {
         this.toastr.error('Error al generar el codigo');
       }
     );
@@ -69,7 +69,7 @@ export class RecoverComponent implements OnInit {
   confirmar() {
     console.log(this.correo);
     this.userService.getSearch(this.correo).subscribe(
-      res => {
+      (res: any) => {
         if (res) {
           this.usuario = res;
           this.codigo = this.usuario.id;
@@ -77,7 +77,7 @@ export class RecoverComponent implements OnInit {
           const parametro = this.codigo.toString();
           this.userService.getrecover(parametro).subscribe(
             // tslint:disable-next-line: no-shadowed-variable
-            res => {
+            (res: any) => {
               this.respuesta = res;
               this.toastr.success('Por favor Confirme la actualizacion en su correo');
               this.router.navigate(
@@ -88,7 +88,7 @@ export class RecoverComponent implements OnInit {
                 ]
               );
             },
-            err => {
+            (err: any) => {
               this.toastr.error('No se pudo enviar el Correo');
             }
           );
@@ -96,7 +96,7 @@ export class RecoverComponent implements OnInit {
           this.toastr.error('Correo no es de la empresa');
         }
       },
-      err => {
+      (err: any) => {
         this.toastr.error('Usted no es un trabajador de la empresa');
         console.log(err);
       }

@@ -70,11 +70,11 @@ export class PasswordComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     if (params['id']) {
       this.userService.getUsuario(params['id']).subscribe(
-        res => {
+        (res: any) => {
           console.log(res);
           this.usuario = res;
         },
-        err => console.log(err)
+        (err: any) => console.log(err)
       );
     }
   }
@@ -82,7 +82,7 @@ export class PasswordComponent implements OnInit {
   comprobarcodigo(par: any) {
     const codigo: any = this.usuario.id;
     this.userService.getcofirecover(par.tostring(), codigo).subscribe(
-      res => {
+      (res: any) => {
         if (res !== null) {
           this.usuario1 = res;
           this.toastr.info('Proceda a cambiar su contra');
@@ -92,7 +92,7 @@ export class PasswordComponent implements OnInit {
           this.bandera = false;
         }
       },
-      err => {
+      (err: any) => {
         this.toastr.error('Codigo desactivado');
       }
     );
@@ -106,7 +106,7 @@ export class PasswordComponent implements OnInit {
       if (this.parametro.contra1 === this.parametro.contra2) {
         console.log(this.usuario1);
         this.userService.updateUsuario(codigo, this.usuario1).subscribe(
-          res => {
+          (res: any) => {
             this.respuesta = res;
             this.toastr.success('Contraseña actualizada');
             this.router.navigate(
@@ -116,7 +116,7 @@ export class PasswordComponent implements OnInit {
               ]
             );
           },
-          err => {
+          (err: any) => {
             this.toastr.error('no se pudo actualizar');
           }
         );
