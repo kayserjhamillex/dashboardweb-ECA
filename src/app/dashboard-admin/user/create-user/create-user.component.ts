@@ -38,6 +38,15 @@ export class CreateUserComponent implements OnInit {
     private usuarioService: UserService,
     private photoService: ProfileUploadService,
   ) { }
+  atras() {
+    this.router.navigate(
+      [
+        'dashboard-admin',
+        'usuario',
+        'lista'
+      ]
+    );
+  }
   getroles() {
     this.rolService.getRols().subscribe(
       (res: any) => {

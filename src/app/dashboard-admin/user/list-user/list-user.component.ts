@@ -19,6 +19,7 @@ export class ListUserComponent implements OnInit {
   codigoelegido: any;
   eldato: any;
   datillo: any;
+  busquedausuario = false;
   usuario: User = {
     id: 0,
     Nombre: '',
@@ -88,6 +89,7 @@ export class ListUserComponent implements OnInit {
     this.usuarioService.getSearch(dato).subscribe(
       (res: any) => {
         this.usuario = res;
+        this.busquedausuario = true;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach correo');
@@ -98,6 +100,7 @@ export class ListUserComponent implements OnInit {
     this.usuarioService.getSearchDoc(dato).subscribe(
       (res: any) => {
         this.usuario = res;
+        this.busquedausuario = true;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach documento');
@@ -108,11 +111,15 @@ export class ListUserComponent implements OnInit {
     this.usuarioService.getSearchCel(dato).subscribe(
       (res: any) => {
         this.usuario = res;
+        this.busquedausuario = true;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach celular');
       }
     );
+  }
+  volveralista() {
+    this.busquedausuario = false;
   }
   ngOnInit(): void {
     this.getroles();
@@ -122,9 +129,8 @@ export class ListUserComponent implements OnInit {
     this.route.navigate(
       [
         'dashboard-admin',
-        'crear',
-        'actualizar',
-        1
+        'usuario',
+        'crear'
       ]
     );
   }
@@ -147,7 +153,7 @@ export class ListUserComponent implements OnInit {
         1
       ]
     );
-  
+
   }
 
 }

@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-lg-6 p-2">
+      <div class="col-12 col-lg-5 p-2">
         <div class="card">
           <div class="card-body">
             <form class="form form-horizontal">
@@ -34,7 +34,7 @@
                 <div class="col-12 form-group">
                   <input type="text" id="eldato"
                   name="eldato" class="form-control"
-                  [(ngModel)]="eldato" 
+                  [(ngModel)]="eldato"
                   placeholder="Correo, documento o celular del usuario">
                 </div>
                 <div class="col-12 d-flex justify-content-around">
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-6 p-2">
+      <div class="col-12 col-lg-4 p-2">
         <div class="card">
           <div class="card-body">
             <form class="form form-horizontal">
@@ -81,9 +81,19 @@
           </div>
         </div>
       </div>
+      <div class="col-12 col-lg-3 p-2">
+        <div class="card">
+          <div class="card-body">
+            <button (click)="crear()" type="button" class="btn btn-primary">
+              <i class="bi bi-person-plus-fill"></i>
+              Crear Usuario
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <section class="section">
-      <div class="card">
+      <div *ngIf="!busquedausuario" class="card">
         <div class="card-header">
           Listado
         </div>
@@ -146,12 +156,46 @@
           </table>
         </div>
       </div>
+      <div *ngIf="busquedausuario" class="card">
+        <div class="card-header">
+          Usuario Encontrado
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-2 col-lg-4 p-2">
+              <img class="rounded-circle img-fluid" [src]="usuario.Foto">
+            </div>
+            <div class="col-12 col-md-2 col-lg-4 p-2">
+              <h4>
+                <b>Nombres y Apellidos:</b>
+                {{usuario.Nombre + ' ' + usuario.Apellido}}
+              </h4>
+              <h4>
+                <b>Correo:</b>
+                {{usuario.Correo}}
+              </h4>
+              <h4>
+                <b>Documento:</b>
+                {{usuario.Documento}}
+              </h4>
+              <h4>
+                <b>Celular:</b>
+                {{usuario.Celular}}
+              </h4>
+              <br>
+              <button (click)="volveralista()" type="button" class="btn btn-primary">
+                <i class="bi bi-arrow-repeat"></i>
+                Vlover a la lista
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
       <script>
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-  
+
       </script>
     </section>
   </div>
-  

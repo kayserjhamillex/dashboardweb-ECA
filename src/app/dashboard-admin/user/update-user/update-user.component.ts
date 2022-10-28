@@ -41,6 +41,15 @@ export class UpdateUserComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private photoService: ProfileUploadService,
   ) { }
+  atras() {
+    this.router.navigate(
+      [
+        'dashboard-admin',
+        'usuario',
+        'lista'
+      ]
+    );
+  }
   getroles() {
     this.rolService.getRols().subscribe(
       (res: any) => {
