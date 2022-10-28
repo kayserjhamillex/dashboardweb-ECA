@@ -32,6 +32,7 @@ export class UpdateUserComponent implements OnInit {
   eluser: any;
   roles: any = [];
   elrol: any;
+  cambio = false;
   constructor(
     private router: Router,
     private toastr: ToastrService,
@@ -51,10 +52,20 @@ export class UpdateUserComponent implements OnInit {
       }
     );
   }
+  elcambio() {
+    this.cambio = !this.cambio;
+    console.log(this.cambio);
+  }
   onOptionsSelectedRol(event: any) {
     const value = event.target.value;
     this.usuario.RolId = value;
-    console.log(value);
+    this.elcambio();
+    const array: any = this.roles;
+    for (const obj of array) {
+      if (this.usuario.RolId == obj.id) {
+        this.elrol = obj.Name;
+      }
+    }
   }
   // tslint:disable-next-line: typedef
   changeImg() {
@@ -78,22 +89,16 @@ export class UpdateUserComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+    this.getroles();
     const params = this.activatedRoute.snapshot.params;
     if (params['id']) {
       this.usuarioService.getUsuario(params['id']).subscribe(
         (res:any) => {
           console.log(res);
           this.usuario = res;
-          this.rolService.getRol(res.usuario.RolId.toString()).subscribe(
-            (res: any) => {
-              console.log(res);
-              this.elrol = res;
-            },
-            (err: any) => {
-              console.error(err);
-              this.toastr.error('Error api get rol');
-            }
-          );
+          this.elrol = res.rol.Name;
+          console.log(this.elrol);
+
         },
         (err: any) => console.log(err)
       );

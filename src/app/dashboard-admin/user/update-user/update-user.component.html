@@ -138,7 +138,19 @@
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
-                      <div class="form-group">
+                      <div *ngIf="!cambio" class="form-group">
+                        <label for="first-name-column">
+                          Rol
+                        </label>
+                        <input type="text"
+                          (click)="elcambio()"
+                          class="form-control"
+                          readonly
+                          id="elrol"
+                          name="elrol"
+                          [(ngModel)]="elrol">
+                      </div>
+                      <div *ngIf="cambio" class="form-group">
                         <label for="first-name-column">
                           Rol
                         </label>
@@ -148,8 +160,8 @@
                           [(ngModel)]="usuario.RolId"
                           name="usuario.RolId"
                           required tabindex="8">
-                          <option selected>
-                            {{elrol.Name}}
+                          <option value="usuario.RolId" selected>
+                            Seleccionar otro rol
                           </option>
                           <option [value]="obj.id" *ngFor="let obj of roles">
                           {{obj.Name}}
@@ -200,4 +212,3 @@
       </div>
     </section>
   </div>
-  
