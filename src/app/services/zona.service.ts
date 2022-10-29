@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Rol } from '../models/rol';
+import { Zona } from '../models/zona';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { HttpClient } from '@angular/common/http';
@@ -7,34 +7,34 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RolService {
-  apiUrl = this.wasa.apiUrlGlobal + '/rol';
+export class ZonaService {
+  apiUrl = this.wasa.apiUrlGlobal + '/zona';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getRols() {
+  getZonas() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getRolFilter(intervalo: string | number, turno: string | number) {
+  getZonaFilter(intervalo: string | number, turno: string | number) {
     return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
   }
 
-  getRol(id: string) {
+  getZona(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  deleteRol(id: string) {
+  deleteZona(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveRol( rol: Rol) {
-    return this.http.post(`${this.apiUrl}/create`, rol);
+  saveZona( zona: Zona) {
+    return this.http.post(`${this.apiUrl}/create`, zona);
   }
 
-  updateRol(id: string|number, updatedrol: Rol): Observable<Rol> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedrol);
+  updateZona(id: string|number, updatedZona: Zona): Observable<Zona> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedZona);
   }
 }

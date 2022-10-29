@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardModeradorComponent } from './dashboard-moderador.component';
+import { CreateEcaComponent } from './eca/create-eca/create-eca.component';
+import { ListEcaComponent } from './eca/list-eca/list-eca.component';
+import { UpdateEcaComponent } from './eca/update-eca/update-eca.component';
 import { ModeradorConfigComponent } from './moderador-config/moderador-config.component';
 import { ModeradorHelpComponent } from './moderador-help/moderador-help.component';
 import { ModeradorHomeComponent } from './moderador-home/moderador-home.component';
@@ -34,6 +37,28 @@ const routes: Routes = [
           {
             path: 'modificar',
             component: EditProfileModeradorComponent
+          },
+          {
+            path: '',
+            redirectTo: 'ver',
+            pathMatch: 'prefix'
+          }
+        ]
+      },
+      {
+        path: 'estandar',
+        children: [
+          {
+            path: 'lista',
+            component: ListEcaComponent
+          },
+          {
+            path: 'crear',
+            component: CreateEcaComponent
+          },
+          {
+            path: 'modificar/:id',
+            component: UpdateEcaComponent
           },
           {
             path: '',

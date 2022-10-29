@@ -1,1 +1,114 @@
-<p>create-eca works!</p>
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>
+          Crear Estandar
+        </h3>
+        <p class="text-subtitle text-muted">
+          Creacion de los Estandars asignando roles
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/dashboard-admin/home']">
+                Dashboard
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Crear Estandar
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- // Basic multiple Column Form section start -->
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row justify-content-between">
+              <div class="col-4">
+                <h4 class="card-title">
+                  Datos Estandar
+                </h4>
+              </div>
+              <div class="col-4">
+                <button (click)="atras()" type="submit" class="btn btn-primary">
+                  <i class="bi bi-backspace"></i>
+                  Salir
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form class="form">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Contaminante
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Nombre ..."
+                        required tabindex="1" autofocus
+                        id="estandar.Contaminante"
+                        name="estandar.Contaminante"
+                        [(ngModel)]="estandar.Contaminante">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Valor Alerta
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Apellido ..."
+                        required tabindex="2"
+                        id="estandar.ValorAlerta"
+                        name="estandar.ValorAlerta"
+                        [(ngModel)]="estandar.ValorAlerta">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Tipo Contaminante
+                      </label>
+                      <select (change)='onOptionsSelectedTipo($event)'
+                        id="select-type-basic estandar.TipoId"
+                        class="form-control"
+                        [(ngModel)]="estandar.TipoId"
+                        name="estandar.RolId"
+                        required tabindex="8">
+                        <option selected>
+                          Asigne Tipo ...
+                        </option>
+                        <option [value]="obj.id" *ngFor="let obj of tipos">
+                        {{obj.Name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button (click)="saveEstandar()" type="submit" class="btn btn-primary"
+                    [disabled]="(estandar.Contaminante === '' ||  estandar.ValorAlerta === '' ||  estandar.ValorPeligro === '' ||  estandar.TipoId === 0)? true:false">
+                      Registrar al Usuario Nuevo
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

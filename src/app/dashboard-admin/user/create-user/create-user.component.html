@@ -88,6 +88,7 @@
                         required tabindex="3"
                         id="usuario.Correo"
                         name="usuario.Correo"
+                        pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
                         [(ngModel)]="usuario.Correo">
                     </div>
                   </div>
@@ -102,6 +103,7 @@
                         required tabindex="4"
                         id="usuario.Documento"
                         name="usuario.Documento"
+                        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                         [(ngModel)]="usuario.Documento">
                     </div>
                   </div>
@@ -116,6 +118,7 @@
                         required tabindex="5"
                         id="usuario.Celular"
                         name="usuario.Celular"
+                        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
                         [(ngModel)]="usuario.Celular">
                     </div>
                   </div>

@@ -144,16 +144,5 @@ export class ListUserComponent implements OnInit {
       ]
     );
   }
-  prueba() {
-    this.route.navigate(
-      [
-        'dashboard-admin',
-        'usuario',
-        'modificar',
-        1
-      ]
-    );
-
-  }
 
 }

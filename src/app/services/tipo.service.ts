@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Rol } from '../models/rol';
+import { Tipo } from '../models/tipo';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { HttpClient } from '@angular/common/http';
@@ -7,34 +7,34 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RolService {
-  apiUrl = this.wasa.apiUrlGlobal + '/rol';
+export class TipoService {
+  apiUrl = this.wasa.apiUrlGlobal + '/tipo';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getRols() {
+  getTipos() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getRolFilter(intervalo: string | number, turno: string | number) {
+  getTipoFilter(intervalo: string | number, turno: string | number) {
     return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
   }
 
-  getRol(id: string) {
+  getTipo(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  deleteRol(id: string) {
+  deleteTipo(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveRol( rol: Rol) {
-    return this.http.post(`${this.apiUrl}/create`, rol);
+  saveTipo( tipo: Tipo) {
+    return this.http.post(`${this.apiUrl}/create`, tipo);
   }
 
-  updateRol(id: string|number, updatedrol: Rol): Observable<Rol> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedrol);
+  updateTipo(id: string|number, updatedTipo: Tipo): Observable<Tipo> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedTipo);
   }
 }

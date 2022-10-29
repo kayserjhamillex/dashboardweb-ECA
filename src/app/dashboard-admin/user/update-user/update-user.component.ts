@@ -107,7 +107,6 @@ export class UpdateUserComponent implements OnInit {
           this.usuario = res;
           this.elrol = res.rol.Name;
           console.log(this.elrol);
-
         },
         (err: any) => console.log(err)
       );
