@@ -111,7 +111,6 @@ export class CreateUserComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getroles();
-    // this.usuario = JSON.parse(localStorage.getItem('admin'));
   }
 
 }

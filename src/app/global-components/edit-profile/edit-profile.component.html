@@ -1,1 +1,185 @@
-<p>edit-profile works!</p>
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>
+          Modificar Perfil
+        </h3>
+        <p class="text-subtitle text-muted">
+          Modificacion del Perfil
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/dashboard-admin/home']">
+                Dashboard
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Modificar Perfil
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- // Basic multiple Column Form section start -->
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">
+              Datos Mios
+            </h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form class="form">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Nombre
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Nombre ..."
+                        required tabindex="1" autofocus
+                        id="usuario.Nombre"
+                        name="usuario.Nombre"
+                        [(ngModel)]="usuario.Nombre">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Apellido
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Apellido ..."
+                        required tabindex="2"
+                        id="usuario.Apellido"
+                        name="usuario.Apellido"
+                        [(ngModel)]="usuario.Apellido">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Correo
+                      </label>
+                      <input type="email"
+                        class="form-control"
+                        placeholder="Apellido ..."
+                        required tabindex="3"
+                        id="usuario.Correo"
+                        name="usuario.Correo"
+                        pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
+                        [(ngModel)]="usuario.Correo">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Documento
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Documento ..."
+                        required tabindex="4"
+                        id="usuario.Documento"
+                        name="usuario.Documento"
+                        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                        [(ngModel)]="usuario.Documento">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Celular
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Celular ..."
+                        required tabindex="5"
+                        id="usuario.Celular"
+                        name="usuario.Celular"
+                        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                        [(ngModel)]="usuario.Celular">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Usuario
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Usuario ..."
+                        required tabindex="6"
+                        id="usuario.Usuario"
+                        name="usuario.Usuario"
+                        [(ngModel)]="usuario.Usuario">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Contraseña
+                      </label>
+                      <input type="password"
+                        class="form-control"
+                        placeholder="Contraseña ..."
+                        required tabindex="7"
+                        id="usuario.Contrasena"
+                        name="usuario.Contrasena"
+                        [(ngModel)]="usuario.Contrasena">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <label>
+                            Foto
+                          </label>
+                          <br>
+                          <button (click)="changeImg()"
+                          type="button" class="btn btn-primary">
+                            <input type="file"
+                              name="avatar"
+                              #file1 required tabindex="11"
+                              (change)="changeImagen()"
+                              accept=".png,.jpg,.jpeg">
+                              Subir Imagen
+                          </button>
+                          <br>
+                          <input name="usuario.Foto"
+                          [(ngModel)]="usuario.Foto"
+                          type="text" class="form-control text-primary" readonly required>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <img class="rounded-circle img-fluid" [src]="usuario.Foto">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button (click)="updateUsuario()" type="submit" class="btn btn-primary"
+                    [disabled]="(usuario.Nombre === '' ||  usuario.Apellido === '' ||  usuario.Correo === '' ||  usuario.Documento === '' ||  usuario.Celular === '' ||  usuario.Usuario === '' ||  usuario.RolId === 0)? true:false">
+                      Actualizar datos Usuario
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

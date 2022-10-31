@@ -14,7 +14,11 @@ import { DashboardMunicipalModule } from './dashboard-municipal/dasboard-municip
 import { HttpClientModule } from '@angular/common/http';
 // problema del refresheo
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+// para los avisos al cliente
+import { ToastrModule } from 'ngx-toastr';
+// para los formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// componente base de la aplicacion
 import { AppComponent } from './app.component';
 // componentes globales
 import { HelpComponent } from './global-components/help/help.component';
@@ -41,7 +45,10 @@ import { EditProfileComponent } from './global-components/edit-profile/edit-prof
     DashboardMunicipalModule,
     DashboardTecnicoModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
