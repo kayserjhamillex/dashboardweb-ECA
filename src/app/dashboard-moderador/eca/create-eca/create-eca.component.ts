@@ -67,11 +67,11 @@ export class CreateEcaComponent implements OnInit {
             'lista'
           ]
         );
-        this.toastr.success('Nuevo usuario creado');
+        this.toastr.success('Nuevo estandar creado');
       },
       (err: any) => {
         console.error(err);
-        this.toastr.error('no se pudo crear un nuevo usuario');
+        this.toastr.error('no se pudo crear un nuevo estandar');
       }
     );
   }

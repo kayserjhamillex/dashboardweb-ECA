@@ -6,7 +6,7 @@
           Crear Estandar
         </h3>
         <p class="text-subtitle text-muted">
-          Creacion de los Estandars asignando roles
+          Creacion de los Estandares
         </p>
       </div>
       <div class="col-12 col-md-6 order-md-2 order-first">
@@ -80,6 +80,20 @@
                   <div class="col-md-6 col-12">
                     <div class="form-group">
                       <label for="first-name-column">
+                        Valor Peligro
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Apellido ..."
+                        required tabindex="3"
+                        id="estandar.ValorPeligro"
+                        name="estandar.ValorPeligro"
+                        [(ngModel)]="estandar.ValorPeligro">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
                         Tipo Contaminante
                       </label>
                       <select (change)='onOptionsSelectedTipo($event)'
@@ -87,7 +101,7 @@
                         class="form-control"
                         [(ngModel)]="estandar.TipoId"
                         name="estandar.RolId"
-                        required tabindex="8">
+                        required tabindex="4">
                         <option selected>
                           Asigne Tipo ...
                         </option>
@@ -100,7 +114,7 @@
                   <div class="col-12 d-flex justify-content-end">
                     <button (click)="saveEstandar()" type="submit" class="btn btn-primary"
                     [disabled]="(estandar.Contaminante === '' ||  estandar.ValorAlerta === '' ||  estandar.ValorPeligro === '' ||  estandar.TipoId === 0)? true:false">
-                      Registrar al Usuario Nuevo
+                      Registrar al Nuevo Estandar
                     </button>
                   </div>
                 </div>

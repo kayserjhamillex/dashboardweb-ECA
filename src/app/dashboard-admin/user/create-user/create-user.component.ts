@@ -90,8 +90,6 @@ export class CreateUserComponent implements OnInit {
     this.usuario.Contrasena = this.usuario.Documento;
     delete this.usuario.id;
     console.log(this.usuario);
-    // this.admin.Password = this.admin.Phone;
-    // llamando a servicio de creacion que esta enlazada con el api
     this.usuarioService.saveUsuario(this.usuario).subscribe(
       (res: any) => {
         console.log(res);

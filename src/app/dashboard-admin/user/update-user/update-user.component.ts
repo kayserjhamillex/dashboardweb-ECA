@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from 'src/app/models/user';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RolService } from 'src/app/services/rol.service';
 import { UserService } from 'src/app/services/user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProfileUploadService } from 'src/app/services/imagepriv.service';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-update-user',

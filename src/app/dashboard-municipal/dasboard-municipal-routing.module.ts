@@ -65,7 +65,7 @@ const routes: Routes = [
           },
           {
             path: '',
-            redirectTo: 'ver',
+            redirectTo: 'lista',
             pathMatch: 'prefix'
           }
         ]
@@ -87,7 +87,7 @@ const routes: Routes = [
           },
           {
             path: '',
-            redirectTo: 'ver',
+            redirectTo: 'lista',
             pathMatch: 'prefix'
           }
         ]

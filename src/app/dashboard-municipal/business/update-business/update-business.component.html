@@ -1,1 +1,122 @@
-<p>update-business works!</p>
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>
+          Crear Empresa
+        </h3>
+        <p class="text-subtitle text-muted">
+          Creacion de las Empresas
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/dashboard-admin/home']">
+                Dashboard
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Crear Empresa
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- // Basic multiple Column Form section start -->
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row justify-content-between">
+              <div class="col-4">
+                <h4 class="card-title">
+                  Datos Empresa
+                </h4>
+              </div>
+              <div class="col-4">
+                <button (click)="atras()" type="submit" class="btn btn-primary">
+                  <i class="bi bi-backspace"></i>
+                  Salir
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form class="form">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Nombre Comercial
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="Nombre Comercial ..."
+                        required tabindex="1" autofocus
+                        id="empresa.NombreComercial"
+                        name="empresa.NombreComercial"
+                        [(ngModel)]="empresa.NombreComercial">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Razon Social
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="RazonSocial ..."
+                        required tabindex="2"
+                        id="empresa.RazonSocial"
+                        name="empresa.RazonSocial"
+                        [(ngModel)]="empresa.RazonSocial">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        RUC
+                      </label>
+                      <input type="text"
+                        class="form-control"
+                        placeholder="RUC ..."
+                        required tabindex="3"
+                        id="empresa.RUC"
+                        name="empresa.RUC"
+                        [(ngModel)]="empresa.RUC">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">
+                        Detalles
+                      </label>
+                      <textarea class="form-control"
+                      placeholder="Detalles ..."
+                      required tabindex="3"
+                      id="empresa.Detalles"
+                      name="empresa.Detalles"
+                      [(ngModel)]="empresa.Detalles"
+                      cols="30" rows="10"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button (click)="updateempresa()" type="submit" class="btn btn-primary"
+                    [disabled]="(empresa.NombreComercial === '' ||  empresa.RazonSocial === '' ||  empresa.RUC === '' ||  empresa.Detalles === '')? true:false">
+                      Actualizar la Empresa
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

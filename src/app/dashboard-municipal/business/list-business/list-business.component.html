@@ -1,1 +1,152 @@
-<p>list-business works!</p>
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>
+          Lista de Empresas
+        </h3>
+        <p class="text-subtitle text-muted">
+          Visualizar la lista de Empresas
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/dashboard-admin/home']">
+                Dashboard
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Lista de Empresas
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-8 p-2">
+      <div class="card">
+        <div class="card-body">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="col-8 form-group">
+                <label for="first-name-column">
+                  Filtrado por RUC
+                </label>
+                <input type="text" id="eldato"
+                name="eldato" class="form-control"
+                [(ngModel)]="eldato"
+                placeholder="Ruc de la empresa">
+              </div>
+              <div class="col-4">
+                <button (click)="searchruc(eldato)" type="submit" class="btn btn-primary btn-block">
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 p-2">
+      <div class="card">
+        <div class="card-body">
+          <button (click)="crear()" type="button" class="btn btn-primary">
+            <i class="bi bi-person-plus-fill"></i>
+            Crear Empresa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div *ngIf="busquedaempresa" class="card">
+      <div class="card-header">
+        Empresa Encontrada
+      </div>
+      <div class="card-body">
+        <h4>
+          <b>
+            Nombre Comercial:
+          </b>
+          {{empresa.NombreComercial}}
+        </h4>
+        <h4>
+          <b>
+            Razon Social:
+          </b>
+          {{empresa.RazonSocial}}
+        </h4>
+        <h4>
+          <b>
+            RUC:
+          </b>
+          {{empresa.RUC}}
+        </h4>
+        <h6>
+          <b>
+            Detalles:
+          </b>
+          {{empresa.Detalles}}
+        </h6>
+      </div>
+    </div>
+    <div *ngIf="!busquedaempresa" class="card">
+      <div class="card-header">
+        Listado
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" id="table1">
+          <thead>
+            <tr>
+              <th>
+                Nombre Comercial
+              </th>
+              <th>
+                Razon Social
+              </th>
+              <th>
+                RUC
+              </th>
+              <th>
+                Detalles
+              </th>
+              <th>
+                Editar
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of empresas">
+              <td>
+                {{item.NombreComercial}}
+              </td>
+              <td>
+                {{item.RazonSocial}}
+              </td>
+              <td>
+                {{item.RUC}}
+              </td>
+              <td>
+                {{item.Detalles}}
+              </td>
+              <td>
+                <button (click)="editar(item.id)" type="button" class="btn btn-info">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+      let table1 = document.querySelector('#table1');
+      let dataTable = new simpleDatatables.DataTable(table1);
+
+    </script>
+  </section>
+</div>

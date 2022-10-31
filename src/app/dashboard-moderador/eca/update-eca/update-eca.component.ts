@@ -87,11 +87,11 @@ export class UpdateEcaComponent implements OnInit {
           this.router.navigate(
             [
               'dashboard-admin',
-              'usuario',
+              'estandar',
               'lista'
             ]
           );
-          this.toastr.success('actualizando los datos del usuario');
+          this.toastr.success('actualizando los datos del estandar');
         },
         (err: any) => {
           console.error(err);

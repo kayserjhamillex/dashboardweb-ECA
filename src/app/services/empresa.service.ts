@@ -17,12 +17,16 @@ export class EmpresaService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getEmpresaFilter(intervalo: string | number, turno: string | number) {
-    return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
-  }
+  // getEmpresaFilter(intervalo: string | number, turno: string | number) {
+  //   return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
+  // }
 
   getEmpresa(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  getEmpresaRUC(ruc: string | number) {
+    return this.http.get(`${this.apiUrl}/search/${ruc}`);
   }
 
   deleteEmpresa(id: string) {
