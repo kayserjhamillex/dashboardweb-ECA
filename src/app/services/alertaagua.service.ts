@@ -1,23 +1,23 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
+import { AlertaAgua } from '../models/alertaagua';
 import { HttpClient } from '@angular/common/http';
-import { Checkpoint } from '../models/checkpoint';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckpointService {
-  apiUrl = this.wasa.apiUrlGlobal + '/checkpoint';
+export class AlertaAguaService {
+  apiUrl = this.wasa.apiUrlGlobal + '/alertaagua';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getCheckpoints() {
+  getAlertaAguas() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getCheckpoint(id: string) {
+  getAlertaAgua(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
@@ -25,16 +25,16 @@ export class CheckpointService {
     return this.http.get(`${this.apiUrl}/filtrado/${estado}`);
   }
 
-  deleteCheckpoint(id: string) {
+  deleteAlertaAgua(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveCheckpoint( Checkpoint: Checkpoint) {
-    return this.http.post(`${this.apiUrl}/create`, Checkpoint);
+  saveAlertaAgua( AlertaAgua: AlertaAgua) {
+    return this.http.post(`${this.apiUrl}/create`, AlertaAgua);
   }
 
-  updateCheckpoint(id: string|number, updatedCheckpoint: Checkpoint): Observable<Checkpoint> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedCheckpoint);
+  updateAlertaAgua(id: string|number, updatedAlertaAgua: AlertaAgua): Observable<AlertaAgua> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedAlertaAgua);
   }
 }

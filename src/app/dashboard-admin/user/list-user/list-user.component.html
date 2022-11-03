@@ -1,201 +1,194 @@
 <div class="page-heading">
-    <div class="page-title">
-      <div class="row">
-        <div class="col-12 col-md-6 order-md-1 order-last">
-          <h3>
-            Lista Usuarios
-          </h3>
-          <p class="text-subtitle text-muted">
-            Visualizar la lista de usuarios
-          </p>
-        </div>
-        <div class="col-12 col-md-6 order-md-2 order-first">
-          <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a [routerLink]="['/dashboard-admin/home']">
-                  Dashboard
-                </a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Lista de Usuarios
-              </li>
-            </ol>
-          </nav>
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>
+          Lista Usuarios
+        </h3>
+        <p class="text-subtitle text-muted">
+          Visualizar la lista de usuarios
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/dashboard-admin/home']">
+                Dashboard
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Lista de Usuarios
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-5 p-2">
+      <div class="card">
+        <div class="card-body">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="col-12 form-group">
+                <input type="text" id="eldato" name="eldato" class="form-control" [(ngModel)]="eldato"
+                  placeholder="Correo, documento o celular del usuario">
+              </div>
+              <div class="col-12 d-flex justify-content-around">
+                <button (click)="buscarcorreo(eldato)" type="submit" class="btn btn-primary">
+                  Correo
+                </button>
+                <button (click)="buscardocumento(eldato)" type="submit" class="btn btn-primary">
+                  Documento
+                </button>
+                <button (click)="buscarcelular(eldato)" type="submit" class="btn btn-primary">
+                  Celular
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-lg-5 p-2">
-        <div class="card">
-          <div class="card-body">
-            <form class="form form-horizontal">
-              <div class="form-body">
-                <div class="col-12 form-group">
-                  <input type="text" id="eldato"
-                  name="eldato" class="form-control"
-                  [(ngModel)]="eldato"
-                  placeholder="Correo, documento o celular del usuario">
-                </div>
-                <div class="col-12 d-flex justify-content-around">
-                  <button (click)="buscarcorreo(eldato)" type="submit" class="btn btn-primary">
-                    Correo
-                  </button>
-                  <button (click)="buscardocumento(eldato)" type="submit" class="btn btn-primary">
-                    Documento
-                  </button>
-                  <button (click)="buscarcelular(eldato)" type="submit" class="btn btn-primary">
-                    Celular
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 p-2">
-        <div class="card">
-          <div class="card-body">
-            <form class="form form-horizontal">
-              <div class="form-body">
-                <div class="col-12 form-group">
-                  <label for="first-name-column">
-                    Filtrado por Rol
-                  </label>
-                  <select (change)='onOptionsSelectedRol($event)'
-                    id="select-type-basic datillo"
-                    class="form-control"
-                    [(ngModel)]="datillo"
-                    name="datillo"
-                    required tabindex="8">
-                    <option selected>
-                      Asigne Rol ...
-                    </option>
-                    <option [value]="obj.id" *ngFor="let obj of roles">
+    <div class="col-12 col-lg-4 p-2">
+      <div class="card">
+        <div class="card-body">
+          <form class="form form-horizontal">
+            <div class="form-body">
+              <div class="col-12 form-group">
+                <label for="first-name-column">
+                  Filtrado por Rol
+                </label>
+                <select (change)='onOptionsSelectedRol($event)' id="select-type-basic datillo" class="form-control"
+                  [(ngModel)]="datillo" name="datillo" required tabindex="8">
+                  <option selected>
+                    Asigne Rol ...
+                  </option>
+                  <option [value]="obj.id" *ngFor="let obj of roles">
                     {{obj.Name}}
-                    </option>
-                  </select>
-                </div>
+                  </option>
+                </select>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="col-12 col-lg-3 p-2">
-        <div class="card">
-          <div class="card-body">
-            <button (click)="crear()" type="button" class="btn btn-primary">
-              <i class="bi bi-person-plus-fill"></i>
-              Crear Usuario
+    </div>
+    <div class="col-12 col-lg-3 p-2">
+      <div class="card">
+        <div class="card-body">
+          <button (click)="crear()" type="button" class="btn btn-primary">
+            <i class="bi bi-person-plus-fill"></i>
+            Crear Usuario
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div *ngIf="!busquedausuario" class="card">
+      <div class="card-header">
+        Listado
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" id="table1">
+          <thead>
+            <tr>
+              <th>
+                Nombres y Apellidos
+              </th>
+              <th>
+                Correo
+              </th>
+              <th>
+                Documento
+              </th>
+              <th>
+                Celular
+              </th>
+              <th>
+                Rol
+              </th>
+              <th>
+                Editar
+              </th>
+              <th>
+                Baja
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of usuarios">
+              <td>
+                {{item.Nombre + ' ' + item.Apellido}}
+              </td>
+              <td>
+                {{item.Correo}}
+              </td>
+              <td>
+                {{item.Documento}}
+              </td>
+              <td>
+                {{item.Celular}}
+              </td>
+              <td>
+                {{item.rol.Name}}
+              </td>
+              <td>
+                <button (click)="editar(item.id)" type="button" class="btn btn-info">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </td>
+              <td>
+                <button (click)="editar(item.id)" type="button" class="btn btn-warning">
+                  <i class="bi bi-lock"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="busquedausuario" class="card">
+      <div class="card-header">
+        Usuario Encontrado
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-2 col-lg-4 p-2">
+            <img class="rounded-circle img-fluid" [src]="usuario.Foto">
+          </div>
+          <div class="col-12 col-md-2 col-lg-4 p-2">
+            <h4>
+              <b>Nombres y Apellidos:</b>
+              {{usuario.Nombre + ' ' + usuario.Apellido}}
+            </h4>
+            <h4>
+              <b>Correo:</b>
+              {{usuario.Correo}}
+            </h4>
+            <h4>
+              <b>Documento:</b>
+              {{usuario.Documento}}
+            </h4>
+            <h4>
+              <b>Celular:</b>
+              {{usuario.Celular}}
+            </h4>
+            <br>
+            <button (click)="volveralista()" type="button" class="btn btn-primary">
+              <i class="bi bi-arrow-repeat"></i>
+              Vlover a la lista
             </button>
           </div>
         </div>
       </div>
     </div>
-    <section class="section">
-      <div *ngIf="!busquedausuario" class="card">
-        <div class="card-header">
-          Listado
-        </div>
-        <div class="card-body">
-          <table class="table table-striped" id="table1">
-            <thead>
-              <tr>
-                <th>
-                  Nombres y Apellidos
-                </th>
-                <th>
-                  Correo
-                </th>
-                <th>
-                  Documento
-                </th>
-                <th>
-                  Celular
-                </th>
-                <th>
-                  Rol
-                </th>
-                <th>
-                  Editar
-                </th>
-                <th>
-                  Baja
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of usuarios">
-                  <td>
-                      {{item.Nombre + ' ' + item.Apellido}}
-                  </td>
-                  <td>
-                      {{item.Correo}}
-                  </td>
-                  <td>
-                      {{item.Documento}}
-                  </td>
-                  <td>
-                      {{item.Celular}}
-                  </td>
-                  <td>
-                      {{item.rol.Name}}
-                  </td>
-                  <td>
-                      <button (click)="editar(item.id)" type="button" class="btn btn-info">
-                          <i class="bi bi-pencil-square"></i>
-                      </button>
-                  </td>
-                  <td>
-                      <button (click)="editar(item.id)" type="button" class="btn btn-warning">
-                        <i class="bi bi-lock"></i>
-                      </button>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div *ngIf="busquedausuario" class="card">
-        <div class="card-header">
-          Usuario Encontrado
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-md-2 col-lg-4 p-2">
-              <img class="rounded-circle img-fluid" [src]="usuario.Foto">
-            </div>
-            <div class="col-12 col-md-2 col-lg-4 p-2">
-              <h4>
-                <b>Nombres y Apellidos:</b>
-                {{usuario.Nombre + ' ' + usuario.Apellido}}
-              </h4>
-              <h4>
-                <b>Correo:</b>
-                {{usuario.Correo}}
-              </h4>
-              <h4>
-                <b>Documento:</b>
-                {{usuario.Documento}}
-              </h4>
-              <h4>
-                <b>Celular:</b>
-                {{usuario.Celular}}
-              </h4>
-              <br>
-              <button (click)="volveralista()" type="button" class="btn btn-primary">
-                <i class="bi bi-arrow-repeat"></i>
-                Vlover a la lista
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-      <script>
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-
-      </script>
-    </section>
-  </div>
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+      let table1 = document.querySelector('#table1');
+      let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+  </section>
+</div>

@@ -2,22 +2,22 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { HttpClient } from '@angular/common/http';
-import { Checkpoint } from '../models/checkpoint';
+import { Alerta } from '../models/alerta';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckpointService {
-  apiUrl = this.wasa.apiUrlGlobal + '/checkpoint';
+export class AlertaService {
+  apiUrl = this.wasa.apiUrlGlobal + '/alerta';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getCheckpoints() {
+  getAlertas() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getCheckpoint(id: string) {
+  getAlerta(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
@@ -25,16 +25,16 @@ export class CheckpointService {
     return this.http.get(`${this.apiUrl}/filtrado/${estado}`);
   }
 
-  deleteCheckpoint(id: string) {
+  deleteAlerta(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveCheckpoint( Checkpoint: Checkpoint) {
-    return this.http.post(`${this.apiUrl}/create`, Checkpoint);
+  saveAlerta( Alerta: Alerta) {
+    return this.http.post(`${this.apiUrl}/create`, Alerta);
   }
 
-  updateCheckpoint(id: string|number, updatedCheckpoint: Checkpoint): Observable<Checkpoint> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedCheckpoint);
+  updateAlerta(id: string|number, updatedAlerta: Alerta): Observable<Alerta> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedAlerta);
   }
 }

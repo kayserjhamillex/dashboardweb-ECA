@@ -1,23 +1,23 @@
 import { Observable } from 'rxjs';
+import { Sensor } from '../models/sensor';
 import { Injectable } from '@angular/core';
-import { Estandar } from '../models/estandar';
 import { GlobalService } from './global.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstandarService {
-  apiUrl = this.wasa.apiUrlGlobal + '/estandar';
+export class SensorService {
+  apiUrl = this.wasa.apiUrlGlobal + '/sensor';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getEstandars() {
+  getSensors() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getEstandar(id: string) {
+  getSensor(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
@@ -25,16 +25,16 @@ export class EstandarService {
     return this.http.get(`${this.apiUrl}/filtrado/${tipo}`);
   }
 
-  deleteEstandar(id: string) {
+  deleteSensor(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveEstandar( Estandar: Estandar) {
-    return this.http.post(`${this.apiUrl}/create`, Estandar);
+  saveSensor( Sensor: Sensor) {
+    return this.http.post(`${this.apiUrl}/create`, Sensor);
   }
 
-  updateEstandar(id: string|number, updatedEstandar: Estandar): Observable<Estandar> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedEstandar);
+  updateSensor(id: string|number, updatedSensor: Sensor): Observable<Sensor> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedSensor);
   }
 }

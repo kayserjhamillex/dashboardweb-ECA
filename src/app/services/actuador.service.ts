@@ -17,10 +17,6 @@ export class ActuadorService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getActuadorFilter(intervalo: string | number, turno: string | number) {
-    return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
-  }
-
   getActuador(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }

@@ -1,5 +1,5 @@
 export interface Tipo {
   id?: number,
-  Name?: string,
-  Description?: string
+  Nombre?: string,
+  Descripcion?: string
 }

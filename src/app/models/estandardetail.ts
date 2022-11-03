@@ -6,7 +6,6 @@ export interface EstandarDetail {
   TipoId?: number,
   tipo?: {
     id?: number,
-    Name?: string,
-    Description?: string
+    Nombre?: string
   }
 }

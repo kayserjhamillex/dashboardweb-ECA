@@ -1,23 +1,23 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { SensorPDC } from '../models/sensorPDC';
 import { GlobalService } from './global.service';
 import { HttpClient } from '@angular/common/http';
-import { Checkpoint } from '../models/checkpoint';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckpointService {
-  apiUrl = this.wasa.apiUrlGlobal + '/checkpoint';
+export class SensorPDCService {
+  apiUrl = this.wasa.apiUrlGlobal + '/sensorpdc';
   constructor(
     private http: HttpClient,
     private wasa: GlobalService
   ) { }
-  getCheckpoints() {
+  getSensorPDCs() {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getCheckpoint(id: string) {
+  getSensorPDC(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
@@ -25,16 +25,16 @@ export class CheckpointService {
     return this.http.get(`${this.apiUrl}/filtrado/${estado}`);
   }
 
-  deleteCheckpoint(id: string) {
+  deleteSensorPDC(id: string) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  saveCheckpoint( Checkpoint: Checkpoint) {
-    return this.http.post(`${this.apiUrl}/create`, Checkpoint);
+  saveSensorPDC( SensorPDC: SensorPDC) {
+    return this.http.post(`${this.apiUrl}/create`, SensorPDC);
   }
 
-  updateCheckpoint(id: string|number, updatedCheckpoint: Checkpoint): Observable<Checkpoint> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, updatedCheckpoint);
+  updateSensorPDC(id: string|number, updatedSensorPDC: SensorPDC): Observable<SensorPDC> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updatedSensorPDC);
   }
 }

@@ -17,10 +17,6 @@ export class UbicacionService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  getUbicacionFilter(intervalo: string | number, turno: string | number) {
-    return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
-  }
-
   getUbicacion(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }

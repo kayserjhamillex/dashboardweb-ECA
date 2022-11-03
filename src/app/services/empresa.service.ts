@@ -17,10 +17,6 @@ export class EmpresaService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  // getEmpresaFilter(intervalo: string | number, turno: string | number) {
-  //   return this.http.get(`${this.apiUrl}/interval/${intervalo}/${turno}`);
-  // }
-
   getEmpresa(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }

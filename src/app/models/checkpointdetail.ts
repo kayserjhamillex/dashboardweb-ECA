@@ -1,7 +1,16 @@
-export interface ActuadorDetail {
+export interface CheckpointDetail {
   id?: number,
+  IpAsignado?: string,
+  Mascara?: string,
+  MAC?: string,
   Estado?: string,
+  RedId?: number,
   UbicacionId?: number,
+  red?: {
+    id?: number,
+    IpRed?: string,
+    Mascara?: string
+  },
   ubicacion?: {
     id?: number,
     Latitud?: string,
