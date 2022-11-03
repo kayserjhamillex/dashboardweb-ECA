@@ -86,8 +86,8 @@ export class UpdateProjectComponent implements OnInit {
   };
   elproyecto: any;
   tipos: any = [];
-  existeusuario = false;
-  existeempresa = false;
+  cambiarusuario = false;
+  cambiarempresa = false;
   elruc: any;
   eldato: any;
   constructor(
@@ -98,6 +98,12 @@ export class UpdateProjectComponent implements OnInit {
     private proyectoService: ProyectoService,
     private photoService: ProfileUploadService,
   ) { }
+  cambiouser() {
+    this.cambiarusuario = !this.cambiarusuario;
+  }
+  cambioempresa() {
+    this.cambiarempresa = !this.cambiarempresa;
+  }
   changeImg() {
     this.fileimagen.nativeElement.click();
   }
@@ -135,7 +141,7 @@ export class UpdateProjectComponent implements OnInit {
       (res: any) => {
         this.usuario = res;
         this.toastr.success('Nuevo usuario creado');
-        this.existeusuario = true;
+        this.cambiarusuario = false;
       },
       (err: any) => {
         console.error(err);
@@ -147,7 +153,7 @@ export class UpdateProjectComponent implements OnInit {
     this.usuarioService.getSearch(dato).subscribe(
       (res: any) => {
         this.usuario = res;
-        this.existeusuario = true;
+        this.cambiarusuario = false;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach correo');
@@ -158,7 +164,7 @@ export class UpdateProjectComponent implements OnInit {
     this.usuarioService.getSearchDoc(dato).subscribe(
       (res: any) => {
         this.usuario = res;
-        this.existeusuario = true;
+        this.cambiarusuario = false;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach documento');
@@ -169,7 +175,7 @@ export class UpdateProjectComponent implements OnInit {
     this.usuarioService.getSearchCel(dato).subscribe(
       (res: any) => {
         this.usuario = res;
-        this.existeusuario = true;
+        this.cambiarusuario = false;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get seach celular');
@@ -185,7 +191,7 @@ export class UpdateProjectComponent implements OnInit {
       (res: any) => {
         console.log(res);
         this.empresa = res;
-        this.existeempresa = true;
+        this.cambiarempresa = false;
         this.toastr.success('Nueva empresa creado');
       },
       (err: any) => {
@@ -198,7 +204,7 @@ export class UpdateProjectComponent implements OnInit {
     this.empresaService.getEmpresaRUC(dato).subscribe(
       (res: any) => {
         this.empresa = res;
-        this.existeempresa = true;
+        this.cambiarempresa = false;
       },
       (err: any) => {
         this.toastr.error('Error en la Api get empresa por RUC');
