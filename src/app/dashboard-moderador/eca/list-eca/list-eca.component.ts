@@ -28,8 +28,7 @@ export class ListEcaComponent implements OnInit {
     TipoId: 0,
     tipo: {
       id: 0,
-      Name: '',
-      Description: ''
+      Nombre: ''
     }
   };
   constructor(

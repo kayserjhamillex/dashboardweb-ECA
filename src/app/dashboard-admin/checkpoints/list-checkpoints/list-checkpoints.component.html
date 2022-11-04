@@ -57,7 +57,7 @@
                 </label>
                 <select (change)='onOptionsSelectedRol($event)' id="select-type-basic datillo" class="form-control"
                   [(ngModel)]="datillo" name="datillo" required tabindex="8">
-                  <option [value]="" selected>
+                  <option value="" selected>
                     Elegir Estado ...
                   </option>
                   <option [value]="obj.nombre" *ngFor="let obj of estados">
@@ -105,9 +105,6 @@
               <th>
                 Editar
               </th>
-              <!-- <th>
-                Baja
-              </th> -->
             </tr>
           </thead>
           <tbody>
